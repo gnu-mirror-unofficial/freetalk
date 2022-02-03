@@ -28,6 +28,9 @@
 
 #include "more.h"
 
+struct termios initial_settings;
+FILE *cin;
+
 void
 gotsig (int sig)
 {
