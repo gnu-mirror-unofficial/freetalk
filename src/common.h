@@ -33,7 +33,7 @@
 #endif
 
 #include <libguile.h>
-#if SCM_MAJOR_VERSION != 2
+#if SCM_MAJOR_VERSION < 2
 #error "wrong guile version unsupported"
 #endif
 #endif /* __COMPAT_H__ */

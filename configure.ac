@@ -62,8 +62,10 @@ if test "x$PKGCONFIG" = "xno"; then
 fi
 
 PKG_CHECK_MODULES([GUILE], [guile-2.0], [HAVE_GUILE_2="yes"], [HAVE_GUILE_2="no"])
-if test "x$HAVE_GUILE_2" == "xno"; then
-   AC_MSG_ERROR([ERROR! guile-2.0 not found...])
+PKG_CHECK_MODULES([GUILE], [guile-2.2], [HAVE_GUILE_2_2="yes"], [HAVE_GUILE_2_2="no"])
+PKG_CHECK_MODULES([GUILE], [guile-3.0], [HAVE_GUILE_3="yes"], [HAVE_GUILE_3="no"])
+if test "x$HAVE_GUILE_2" == "xno" && test "x$HAVE_GUILE_2_2" == "xno" && test "x$HAVE_GUILE_3" == "xno"; then
+   AC_MSG_ERROR([ERROR! guile-2.0, or guile-2.2, or guile-3.0 not found...])
 fi
 PKG_CHECK_MODULES([GLIB], [glib-2.0], [HAVE_GLIB_2="yes"], [HAVE_GLIB_2="no"])
 if test "x$HAVE_GLIB_2" == "xno"; then
